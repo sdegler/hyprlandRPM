@@ -13,6 +13,7 @@ ExcludeArch:    %{ix86}
 BuildRequires:  cmake
 BuildRequires:  cmake(hyprwayland-scanner)
 BuildRequires:  gcc-c++
+BuildRequires:  gtest-devel
 BuildRequires:  mesa-libEGL-devel
 BuildRequires:  ninja-build
 BuildRequires:  pkgconfig(aquamarine)
