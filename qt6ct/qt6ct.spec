@@ -22,7 +22,7 @@ Summary: Qt6 - Configuration Tool
 License: BSD-2-Clause
 URL:     %{forgeurl}
 
-Source0: %{forgesource}
+Source0: %{forgeurl}/-/archive/%{version}/qt6ct-%{version}.tar.gz
 # https://www.opencode.net/trialuser/qt6ct/-/merge_requests/9
 Patch0:  qt6ct-kde.patch
 Patch1:  0001-build-refactor-CMake-build-rules.patch
