@@ -26,6 +26,7 @@ BuildRequires:  pixman-devel
 #BuildRequires:  wayland-devel
 
 #Requires:       hyprland-qt-support%{?_isa}
+Obsoletes:	hyprland-qtutils
 
 %description
 %{summary}.
