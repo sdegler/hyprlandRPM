@@ -4,8 +4,7 @@ Release:        %autorelease -b4
 Summary:        Hyprland utility apps
 License:        BSD-3-Clause
 URL:            https://github.com/hyprwm/hyprland-guiutils
-#Source:         %{url}/archive/v%{version}/%{name}-%{version}.tar.gz
-Source:         %{url}/releases/download/v%{version}/v%{version}.tar.gz
+Source:         %{url}/archive/v%{version}/%{name}-%{version}.tar.gz
 
 # https://fedoraproject.org/wiki/Changes/EncourageI686LeafRemoval
 ExcludeArch:    %{ix86}
