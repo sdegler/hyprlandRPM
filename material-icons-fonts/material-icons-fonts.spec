@@ -1,4 +1,4 @@
-%global commit0 b2c0f61d8a99224bd99924f3d0471d9f146c9a54
+%global commit0 bb04090f930e272697f2a1f0d7b352d92dfeee43
 %global shortcommit0 %{sub %{commit0} 1 7}
 %global bumpver 1
 
