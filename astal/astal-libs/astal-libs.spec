@@ -14,6 +14,7 @@ URL:            https://github.com/Aylur/astal
 Source0:        %{url}/archive/%{astal_commit}/%{name}-%{astal_shortcommit}.tar.gz
 Source1:        https://github.com/LukashonakV/cava/archive/0.10.3.tar.gz
 
+BuildRequires:  cmake
 BuildRequires:  gcc
 BuildRequires:  iniparser-devel
 BuildRequires:  meson
