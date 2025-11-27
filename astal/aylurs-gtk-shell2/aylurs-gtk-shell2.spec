@@ -40,7 +40,7 @@ Recommends:     astal-gtk4
 %prep
 %goprep -A
 %setup -q -T -D -a1 %{forgesetupargs}
-%autopatch -p1
+#autopatch -p1
 
 %generate_buildrequires
 %go_vendor_license_buildrequires -c %{S:2}
