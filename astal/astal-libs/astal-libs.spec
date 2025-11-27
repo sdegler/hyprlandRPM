@@ -60,7 +60,7 @@ tar -xf %{SOURCE1} -C lib/cava/subprojects
 cd lib
 for lib in $(find -maxdepth 1 -mindepth 1 -type d -not -path ./astal); do
 pushd $lib
-%meson --auto-features=auto
+%meson --auto-features=auto --wrap-mode=default
 %meson_build
 popd
 done
@@ -119,7 +119,7 @@ rm -rf %{buildroot}%{_libdir}/pkgconfig/cava.pc
 %{_libdir}/libastal-tray.so.0{,.*}
 %{_libdir}/libastal-wireplumber.so.0{,.*}
 %{_libdir}/libcava.so
-
+%{_datadir}/glib-2.0/schemas/io.astal.notifd.gschema.xml
 %files devel
 %{_datadir}/gir-1.0/Astal*-0.1.gir
 %{_datadir}/vala/vapi/astal-*-0.1.deps
