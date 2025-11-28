@@ -1,6 +1,6 @@
 %global commit0 bbb8d2cb0eb667f2911103eadb3d1e8176f4462c
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
-%global bumpver 1349
+%global bumpver 1349 
 
 %global __provides_exclude_from ^(%{_libdir}/hyprland/.*\\.so)$
 
@@ -34,7 +34,7 @@ end
 %pluginsmeta
 
 Name:           %{pluginsmetaname}
-Version:        0.1^%{bumpver}.git%{shortcommit0}
+Version:        0.52.0^%{bumpver}.git%{shortcommit0}
 Release:        %autorelease
 Summary:        Official plugins for Hyprland
 
