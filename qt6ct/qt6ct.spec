@@ -10,8 +10,8 @@
 
 %global forgename gitlab
 %global forgeurl https://www.opencode.net/trialuser/qt6ct
-%global commit 23a985f45cf793ce7ce05811411d2374b4f979c4
-
+%global commit 00823e41aa60e8fe266d5aee328e82ad1ad94348
+%global shortcommit %(c=%{commit}; echo ${c:0:7})
 %forgemeta
 
 Name:    qt6ct
@@ -22,14 +22,14 @@ Summary: Qt6 - Configuration Tool
 License: BSD-2-Clause
 URL:     %{forgeurl}
 
-Source0: %{forgeurl}/-/archive/%{version}/qt6ct-%{version}.tar.gz
+Source0: %{forgesource}
 # https://www.opencode.net/trialuser/qt6ct/-/merge_requests/9
-Patch0:  qt6ct-kde.patch
+#Patch0:  qt6ct-kde.patch
 Patch1:  0001-build-refactor-CMake-build-rules.patch
-Patch2:  0002-Wrap-forward-declaration-within-QT_NAMESPACE.patch
-Patch3:  0003-Revert-Use-KDE-s-QtQuick-QtWidgets-style-bridge.patch
+#Patch2:  0002-Wrap-forward-declaration-within-QT_NAMESPACE.patch
+#Patch3:  0003-Revert-Use-KDE-s-QtQuick-QtWidgets-style-bridge.patch
 
-Patch4:  qt6ct-fix-build-against-qt-6-10.patch
+#Patch4:  qt6ct-fix-build-against-qt-6-10.patch
 
 BuildRequires: cmake
 BuildRequires: extra-cmake-modules
@@ -53,6 +53,7 @@ under DE/WM without Qt integration.
 
 %prep
 %forgeautosetup -p1
+#autosetup -p1
 
 
 %build
