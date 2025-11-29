@@ -1,4 +1,4 @@
-%global commit0 bbb8d2cb0eb667f2911103eadb3d1e8176f4462c
+%global commit0 84659a2502df6b2fd245441c16a8365f5e1cd16d
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 %global bumpver 1349
 
@@ -26,7 +26,7 @@ if rpm.expand("%build_for") == "git" then
     rpm.define(rpm.expand("pluginsmetaname hyprland-plugins%pluginssuffix"))
     rpm.define(rpm.expand("hyprlandpkg hyprland%pluginssuffix"))
 else
-    rpm.define("pluginsmetaname hyprland-plugins")
+    rpm.define("pluginsmetaname hyprland-plugins-git")
     rpm.define("hyprlandpkg hyprland")
 end
 }
