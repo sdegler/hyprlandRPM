@@ -20,7 +20,8 @@ BuildRequires:  gcc-c++
 
 BuildRequires:  pkgconfig(hyprutils) >= 0.6.0
 BuildRequires:  pkgconfig(hyprlang) >= 0.2.4
-BuildRequires:  pkgconfig(hyprtoolkit) >= 0.2.2
+BuildRequires:  pkgconfig(hyprtoolkit) >= 0.4.0
+
 BuildRequires:  libdrm-devel
 BuildRequires:  pixman-devel
 #BuildRequires:  wayland-devel
