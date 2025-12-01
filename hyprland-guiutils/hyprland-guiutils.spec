@@ -1,6 +1,6 @@
 Name:           hyprland-guiutils
-Version:        0.1.0
-Release:        %autorelease -b5
+Version:        0.2.0
+Release:        %autorelease -b1
 Summary:        Hyprland utility apps
 License:        BSD-3-Clause
 URL:            https://github.com/hyprwm/hyprland-guiutils
@@ -47,6 +47,8 @@ Obsoletes:	hyprland-qtutils
 %{_bindir}/hyprland-dialog
 %{_bindir}/hyprland-donate-screen
 %{_bindir}/hyprland-update-screen
+%{_bindir}/hyprland-run
+%{_bindir}/hyprland-welcome
 
 %changelog
 %autochangelog
