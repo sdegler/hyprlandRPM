@@ -6,7 +6,7 @@
 
 Name:           satty
 Version:        0.20.0
-Release:        %autorelease
+Release:        %autorelease -b2
 Summary:        Modern Screenshot Annotation
 
 # 0BSD OR MIT OR Apache-2.0
