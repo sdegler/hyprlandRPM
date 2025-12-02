@@ -6,7 +6,7 @@
 %define go_vendor_archive %{lua: print("vendor-"..(macros.bumpver and macros.shortcommit0 or macros.version)..".tar.gz")}
 
 %bcond test 1
-%bcond bundled 1
+%bcond bundled 0
 
 %if %{with bundled}
 %global gomodulesmode GO111MODULE=on
@@ -54,8 +54,10 @@ License:        GPL-3.0-only AND LGPL-2.1-or-later AND Zlib AND (MIT AND CC0-1.0
 URL:            https://github.com/kovidgoyal/kitty
 %if 0%{?bumpver}
 Source0:        https://github.com/kovidgoyal/kitty/archive/%{commit0}/%{name}-%{shortcommit0}.tar.gz
+Source7:        bundle_go_deps_for_rpm.sh
 %else
 Source0:        https://github.com/kovidgoyal/kitty/releases/download/v%{version}/%{name}-%{version}.tar.xz
+Source7:        bundle_go_deps_for_rpm.sh
 Source4:        https://github.com/kovidgoyal/kitty/releases/download/v%{version}/%{name}-%{version}.tar.xz.sig
 Source5:        https://calibre-ebook.com/signatures/kovid.gpg
 %endif
@@ -260,6 +262,8 @@ sed '1i \#define XKB_KEY_XF86Fn 0x100811d0' -i kitty/keys.c
 export GOPATH=$(pwd):%{gopath}
 %go_generate_buildrequires
 %endif
+#unset GOPATH
+#( cd %{_sourcedir} && bash -x %{SOURCE7} %{_specdir}/kitty.spec )
 
 %build
 %set_build_flags
