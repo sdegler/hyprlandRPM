@@ -19,7 +19,7 @@ GTK3 settings editor adapted to work in the wlroots environment.}
 %global godocs          README.md
 
 Name:           nwg-look
-Release:        %autorelease
+Release:        %autorelease -b2
 Summary:        GTK3 settings editor adapted to work in the wlroots environment
 
 License:        MIT
