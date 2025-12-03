@@ -54,19 +54,19 @@ License:        GPL-3.0-only AND LGPL-2.1-or-later AND Zlib AND (MIT AND CC0-1.0
 URL:            https://github.com/kovidgoyal/kitty
 %if 0%{?bumpver}
 Source0:        https://github.com/kovidgoyal/kitty/archive/%{commit0}/%{name}-%{shortcommit0}.tar.gz
-Source7:        bundle_go_deps_for_rpm.sh
+Source6:        bundle_go_deps_for_rpm.sh
 %else
 Source0:        https://github.com/kovidgoyal/kitty/releases/download/v%{version}/%{name}-%{version}.tar.xz
-Source7:        bundle_go_deps_for_rpm.sh
 Source4:        https://github.com/kovidgoyal/kitty/releases/download/v%{version}/%{name}-%{version}.tar.xz.sig
 Source5:        https://calibre-ebook.com/signatures/kovid.gpg
+Source6:        bundle_go_deps_for_rpm.sh
 %endif
 # bash bundle_go_deps_for_rpm.sh kitty.spec
-%if ! 0%{?epel}
-Source6:        %{go_vendor_archive}
-%else
-Source6:        vendor-%{version}.tar.gz
-%endif
+#%if ! 0%{?epel}
+#Source6:        %{go_vendor_archive}
+#%else
+#Source6:        vendor-%{version}.tar.gz
+#%endif
 # Add AppData manifest file
 # * https://github.com/kovidgoyal/kitty/pull/2088
 Source1:        https://raw.githubusercontent.com/kovidgoyal/kitty/46c0951751444e4f4994008f0d2dcb41e49389f4/kitty/data/%{name}.appdata.xml
@@ -237,7 +237,7 @@ This package contains the documentation for %{name}.
 %if ! 0%{?bumpver}
 %{gpgverify} --keyring='%{SOURCE5}' --signature='%{SOURCE4}' --data='%{SOURCE0}'
 %endif
-%autosetup -p1 %{?bumpver:-n %{name}-%{commit0}} %{?with_bundled:-a6}
+%autosetup -p1 %{?bumpver:-n %{name}-%{commit0}}
 mkdir fonts
 tar -xf %{SOURCE2} -C fonts
 
@@ -259,11 +259,14 @@ sed '1i \#define XKB_KEY_XF86Fn 0x100811d0' -i kitty/keys.c
 
 %if %{without bundled}
 %generate_buildrequires
-export GOPATH=$(pwd):%{gopath}
+pwd
+go mod vendor -v
+export GOPATH=$(pwd):$(pwd)/vendor:%{gopath}
 %go_generate_buildrequires
 %endif
-#unset GOPATH
-#( cd %{_sourcedir} && bash -x %{SOURCE7} %{_specdir}/kitty.spec )
+unset GOPATH
+( cd %{_sourcedir} && bash -x %{SOURCE6} %{_specdir}/kitty.spec )
+tar xvf %{_sourcedir}/vendor-%{version}.tar.gz
 
 %build
 %set_build_flags
