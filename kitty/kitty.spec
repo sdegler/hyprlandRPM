@@ -6,7 +6,7 @@
 %define go_vendor_archive %{lua: print("vendor-"..(macros.bumpver and macros.shortcommit0 or macros.version)..".tar.gz")}
 
 %bcond test 1
-%bcond bundled 0
+%bcond bundled 1
 
 %if %{with bundled}
 %global gomodulesmode GO111MODULE=on
