@@ -265,8 +265,8 @@ export GOPATH=$(pwd):$(pwd)/vendor:%{gopath}
 %go_generate_buildrequires
 %endif
 unset GOPATH
-( cd $(dirname %{SOURCE6}) && bash -x %{SOURCE6} %{_specdir}/kitty.spec )
-tar xvf $(dirname %{SOURCE6})/vendor-%{version}.tar.gz
+bash -x %{SOURCE6} %{_specdir}/kitty.spec
+tar xvf %{_sourcedir}/vendor-%{version}.tar.gz
 
 %build
 %set_build_flags
