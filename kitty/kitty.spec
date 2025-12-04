@@ -315,7 +315,7 @@ rm %{buildroot}%{_datadir}/doc/%{name}/html/.buildinfo \
 
 %check
 %if %{with test}
-sed '/def test_fish_integration\a \
+sed '/def test_fish_integration/a \
 \        self.skipTest("Skipping a flaky test")' -i kitty_tests/shell_integration.py
 sed '/def test_ssh_shell_integration/a \
 \        self.skipTest("Skipping a flaky test")' -i kitty_tests/ssh.py
