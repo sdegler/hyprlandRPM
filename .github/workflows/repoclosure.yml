@@ -22,7 +22,7 @@ jobs:
       - name: Prepare
         run: |
           cat << 'EOF' >> /etc/yum.repos.d/coprs.repo
-          [copr:copr.fedorainfracloud.org:solopasha:hyprland]
+          [copr:copr.fedorainfracloud.org:sdegler:hyprland]
           name=Copr repo for hyprland owned by solopasha
           baseurl=https://download.copr.fedorainfracloud.org/results/solopasha/hyprland/fedora-$releasever-$basearch/
           type=rpm-md
@@ -37,11 +37,11 @@ jobs:
       - name: Repoclosure
         run: |
           dnf repoclosure \
-            --check copr:copr.fedorainfracloud.org:solopasha:hyprland \
+            --check copr:copr.fedorainfracloud.org:sdegler:hyprland \
             --newest
 
       - name: Repoclosure (with --best)
         run: |
           dnf repoclosure \
-            --check copr:copr.fedorainfracloud.org:solopasha:hyprland \
+            --check copr:copr.fedorainfracloud.org:sdegler:hyprland \
             --newest --best
