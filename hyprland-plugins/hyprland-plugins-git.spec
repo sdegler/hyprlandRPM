@@ -17,7 +17,7 @@
 }
 
 %if !%{defined build_for}
-%global build_for release
+%global build_for git
 %endif
 
 %define pluginsmeta %{lua:
@@ -26,8 +26,8 @@ if rpm.expand("%build_for") == "git" then
     rpm.define(rpm.expand("pluginsmetaname hyprland-plugins%pluginssuffix"))
     rpm.define(rpm.expand("hyprlandpkg hyprland%pluginssuffix"))
 else
-    rpm.define("pluginsmetaname hyprland-plugins-git")
-    rpm.define("hyprlandpkg hyprland-git")
+    rpm.define("pluginsmetaname hyprland-plugins")
+    rpm.define("hyprlandpkg hyprland")
 end
 }
 
