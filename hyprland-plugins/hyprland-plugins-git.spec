@@ -27,7 +27,7 @@ if rpm.expand("%build_for") == "git" then
     rpm.define(rpm.expand("hyprlandpkg hyprland%pluginssuffix"))
 else
     rpm.define("pluginsmetaname hyprland-plugins-git")
-    rpm.define("hyprlandpkg hyprland")
+    rpm.define("hyprlandpkg hyprland-git")
 end
 }
 
