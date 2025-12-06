@@ -60,7 +60,7 @@ hyprdeps = {
     "pkgconfig(libliftoff)",
     "pkgconfig(libseat)",
     "pkgconfig(libudev)",
-    "pkgconfig(muParser)",
+    "pkgconfig(muparser)",
     "pkgconfig(pango)",
     "pkgconfig(pangocairo)",
     "pkgconfig(pixman-1)",
