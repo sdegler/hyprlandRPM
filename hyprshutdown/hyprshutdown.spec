@@ -18,7 +18,7 @@ ExcludeArch:    %{ix86}
 
 BuildRequires:  cmake
 BuildRequires:  gcc-c++
-
+BuildRequires: glaze-static
 BuildRequires: pkgconfig(hyprtoolkit)
 BuildRequires: pkgconfig(hyprutils) >= 0.11.0
 BuildRequires: pkgconfig(pixman-1)
