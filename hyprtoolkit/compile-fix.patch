@@ -1,0 +1,10 @@
+--- hyprtoolkit-0.5.3/src/palette/ConfigManager.cpp.orig	2026-01-22 19:55:59.619010043 -0500
++++ hyprtoolkit-0.5.3/src/palette/ConfigManager.cpp	2026-01-22 19:56:33.961887571 -0500
+@@ -8,6 +8,7 @@
+ #include <glob.h>
+ #include <filesystem>
+ #include <cstring>
++#include <climits>
+ 
+ using namespace Hyprtoolkit;
+ 
