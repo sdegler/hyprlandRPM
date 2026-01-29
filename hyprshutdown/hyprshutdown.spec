@@ -33,7 +33,7 @@ Hypershutdown closes out a hyprland session cleanly.
 
 
 %prep
-%autosetup -p1 -n %{name}-%{hyprshutdown_commit}
+%autosetup -p1
 
 %build
 %cmake
