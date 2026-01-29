@@ -1,17 +1,12 @@
-%global hyprshutdown_commit 813bd56e2c2644ae55759f09f65669abf7be03ce
-%global hyprshutdown_shortcommit %(c=%{hyprshutdown_commit}; echo ${c:0:7})
-%global bumpver 1
-
-
 Name:           hyprshutdown
-Version:        0~%{bumpver}.git%{hyprshutdown_shortcommit}
+Version:        0.1.0
 Release:        %autorelease
 Summary:        Graceful session logout for hyprland
 # LICENSE: BSD-3-Clause
 # protocols/wlr-layer-shell-unstable-v1.xml: HPND-sell-variant
 License:        BSD-3-Clause AND HPND-sell-variant
 URL:            https://github.com/hyprwm/hyprshutdown
-Source:         %{url}/archive/%{hyprshutdown_commit}/%{name}-%{hyprshutdown_commit}.tar.gz
+Source:         %{url}/archive/v%{version}/%{name}-%{version}.tar.gz
 
 # https://fedoraproject.org/wiki/Changes/EncourageI686LeafRemoval
 ExcludeArch:    %{ix86}
