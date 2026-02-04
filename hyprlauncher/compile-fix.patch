@@ -1,0 +1,10 @@
+--- hyprlauncher-0.1.5/src/config/ConfigManager.cpp.orig	2026-02-04 13:43:30.590389218 -0500
++++ hyprlauncher-0.1.5/src/config/ConfigManager.cpp	2026-02-04 13:42:59.277810726 -0500
+@@ -3,6 +3,7 @@
+ #include "../helpers/Log.hpp"
+ 
+ #include <hyprutils/path/Path.hpp>
++#include <climits>
+ 
+ CConfigManager::CConfigManager() : m_inotifyFd(inotify_init()) {
+     const auto CFGPATH = Hyprutils::Path::findConfig("hyprlauncher").first.value_or("");
