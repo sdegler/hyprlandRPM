@@ -9,3 +9,13 @@
  
  CConfigManager::CConfigManager() : m_inotifyFd(inotify_init()) {
      const auto CFGPATH = Hyprutils::Path::findConfig("hyprlauncher").first.value_or("");
+--- hyprlauncher-0.1.5/src/finders/desktop/DesktopFinder.cpp.orig	2026-02-04 14:31:04.984483548 -0500
++++ hyprlauncher-0.1.5/src/finders/desktop/DesktopFinder.cpp	2026-02-04 14:31:56.094942806 -0500
+@@ -10,6 +10,7 @@
+ #include <sys/inotify.h>
+ #include <sys/poll.h>
+ #include <unordered_set>
++#include <unistd.h>
+ 
+ #include <hyprutils/string/String.hpp>
+ #include <hyprutils/os/Process.hpp>
