@@ -10,3 +10,14 @@ index 90f0228..d46959d 100644
  #include <hyprutils/math/Vector2D.hpp>
  #include <wayland-client-protocol.h>
  #include <xkbcommon/xkbcommon-keysyms.h>
+diff --git a/src/hyprpicker.hpp b/src/hyprpicker.hpp
+index 77ab060..cad8f02 100644
+--- a/src/hyprpicker.hpp
++++ b/src/hyprpicker.hpp
+@@ -1,5 +1,6 @@
+ #pragma once
+ 
++#include <mutex>
+ #include "defines.hpp"
+ #include "helpers/LayerSurface.hpp"
+ #include "helpers/PoolBuffer.hpp"
