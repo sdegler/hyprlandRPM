@@ -41,6 +41,7 @@ hyprdeps = {
     "cmake",
     "gcc-c++",
     "meson",
+    "git",
     "glaze-static",
     "pkgconfig(aquamarine)",
     "pkgconfig(cairo)",
