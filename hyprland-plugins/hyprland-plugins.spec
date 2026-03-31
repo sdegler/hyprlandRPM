@@ -34,7 +34,7 @@ end
 %pluginsmeta
 
 Name:           %{pluginsmetaname}
-Version:        0.53.0^%{bumpver}.git%{shortcommit0}
+Version:        0.53.2^%{bumpver}.git%{shortcommit0}
 Release:        %autorelease
 Summary:        Official plugins for Hyprland
 
