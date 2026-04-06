@@ -1,6 +1,6 @@
 Name:           hyprgraphics
 Version:        0.5.1
-Release:        %autorelease -b1
+Release:        %autorelease -b2
 Summary:        Hyprland graphics / resource utilities
 
 License:        BSD-3-Clause
@@ -29,7 +29,7 @@ BuildRequires:  pkgconfig(pangocairo)
 BuildRequires:  pkgconfig(libheif)
 BuildRequires:  pkgconfig(librsvg-2.0)
 BuildRequires:  pkgconfig(glesv2)
-
+BuildRequires:  pkgconfig(libdrm)
 %description
 %{summary}.
 
