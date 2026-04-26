@@ -13,6 +13,7 @@ ExcludeArch:    %{ix86}
 BuildRequires:  cmake
 BuildRequires:  desktop-file-utils
 BuildRequires:  gcc-c++
+BuildRequires:  git
 
 BuildRequires:  cmake(Qt6Quick)
 BuildRequires:  cmake(Qt6QuickControls2)
