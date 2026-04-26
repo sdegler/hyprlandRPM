@@ -1,6 +1,6 @@
 Name:           hyprsysteminfo
 Version:        0.2.0
-Release:        %https://github.com/hyprwm/xdg-desktop-portal-hyprland/releases/tag/v1.3.12autorelease
+Release:        %autorelease -b1
 Summary:        An application to display information about the running system
 License:        BSD-3-Clause
 URL:            https://github.com/hyprwm/hyprsysteminfo
