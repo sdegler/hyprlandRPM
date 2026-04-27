@@ -26,6 +26,7 @@ BuildRequires:  pkgconfig(hyprtoolkit)
 BuildRequires:  pkgconfig(libdrm)
 BuildRequires:  pkgconfig(libpci)
 BuildRequires:  pkgconfig(pixman-1)
+BuildRequires:  glaze-static
 
 Requires:       /usr/bin/lscpu
 Requires:       /usr/bin/lspci
