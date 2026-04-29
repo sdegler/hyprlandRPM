@@ -1,4 +1,4 @@
-%global hyprland_commit f8d5aad1a1f61e1b6443c27394a38c8c54d39e9e
+%global hyprland_commit 56d7a43102b53f79a2311662783d5dd94cb2f1a5
 %global hyprland_shortcommit %(c=%{hyprland_commit}; echo ${c:0:7})
 %global bumpver 4
 %global commits_count 6689
