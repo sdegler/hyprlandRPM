@@ -94,6 +94,7 @@ hyprdeps = {
     "pkgconfig(xwayland)",
     "pkgconfig(glslang)",
     "pkgconfig(lcms2)",
+    "pkgconfig(lua)",
     }
 }
 %if 0%{?fedora} > 42
