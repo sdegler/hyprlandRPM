@@ -14,7 +14,7 @@
 
 Name:           hyprland-git
 Version:        0.55.0%{?bumpver:^%{bumpver}.git%{hyprland_shortcommit}}
-Release:        %autorelease -b4
+Release:        %autorelease -b1
 Summary:        Dynamic tiling Wayland compositor that doesn't sacrifice on its looks
 
 # hyprland: BSD-3-Clause
