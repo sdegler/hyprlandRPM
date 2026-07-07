@@ -1,13 +1,11 @@
-%bcond wireplumber %[0%{?fedora} > 39]
+%global waybar_commit 98b2a563f398f63f99ec8a6f7fb2b19a172abd5d
+%global waybar_shortcommit %(c=%{waybar_commit}; echo ${c:0:7})
+%global bumpver 1
 
-%global commit0 161367d9617673a4ef9caf8299411dc5153464d1
-%global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
-%global bumpver 6
-
-Name:           waybar-git
-Version:        0.14.0%{?bumpver:^%{bumpver}.git%{shortcommit0}}
-Release:        3%{?dist}
-Summary:        Highly customizable Wayland bar for Sway and Wlroots based compositors, with workspaces support for Hyprland
+Name:           waybar
+Version:        0.15.0%{?bumpver:^%{bumpver}.git%{waybar_shortcommit}}
+Release:        1%{?dist}
+Summary:        Highly customizable Wayland bar for Sway and Wlroots based compositors
 # Source files/overall project licensed as MIT, but
 # - BSL-1.0
 #   * include/util/clara.hpp
@@ -21,30 +19,40 @@ Summary:        Highly customizable Wayland bar for Sway and Wlroots based compo
 #   * src/util/rfkill.cpp
 License:        MIT AND BSL-1.0 AND ISC
 URL:            https://github.com/Alexays/Waybar
-Source0:        %{url}/archive/%{commit0}/%{name}-%{shortcommit0}.tar.gz
+Source:        %{url}/archive/%{waybar_commit}/%{name}-%{waybar_shortcommit}.tar.gz
+# Downstream changes to the configuration:
+#  - Fix missing or incorrectly rendered icons
+#  - Remove several modules from the config
+#  - Switch font to monospace
+Patch:          waybar-fedora-config-changes.patch
+
+# Fix for hot update loop that can spike CPU and
+# destabilize rendering in drawer/group setups
+# https://github.com/Alexays/Waybar/pull/4838
+#Patch:          fix-treat-missing-interval-as-once.patch
 
 BuildRequires:  gcc
 BuildRequires:  gcc-c++
-BuildRequires:  meson >= 0.49.0
+BuildRequires:  meson >= 0.59.0
 BuildRequires:  scdoc
 BuildRequires:  systemd-rpm-macros
-%if %{fedora} >= 40
+
 BuildRequires:  pkgconfig(catch2)
-%endif
-BuildRequires:  pkgconfig(date)
 BuildRequires:  pkgconfig(dbusmenu-gtk3-0.4)
 BuildRequires:  pkgconfig(fmt) >= 8.1.1
 BuildRequires:  pkgconfig(gdk-pixbuf-2.0)
 BuildRequires:  pkgconfig(gio-unix-2.0)
-BuildRequires:  pkgconfig(gtk-layer-shell-0)
+BuildRequires:  pkgconfig(gtk-layer-shell-0) >= 0.9.0
 BuildRequires:  pkgconfig(gtkmm-3.0)
 BuildRequires:  pkgconfig(jack)
 BuildRequires:  pkgconfig(jsoncpp)
 BuildRequires:  pkgconfig(libevdev)
+BuildRequires:  pkgconfig(libgps)
 BuildRequires:  pkgconfig(libinput)
 BuildRequires:  pkgconfig(libmpdclient)
 BuildRequires:  pkgconfig(libnl-3.0)
 BuildRequires:  pkgconfig(libnl-genl-3.0)
+BuildRequires:  pkgconfig(libpipewire-0.3)
 BuildRequires:  pkgconfig(libpulse)
 BuildRequires:  pkgconfig(libudev)
 BuildRequires:  pkgconfig(playerctl)
@@ -55,64 +63,148 @@ BuildRequires:  pkgconfig(upower-glib)
 BuildRequires:  pkgconfig(wayland-client)
 BuildRequires:  pkgconfig(wayland-cursor)
 BuildRequires:  pkgconfig(wayland-protocols)
-%if %{with wireplumber}
 BuildRequires:  pkgconfig(wireplumber-0.5)
-%endif
-BuildRequires:  pkgconfig(libpipewire-0.3)
 BuildRequires:  pkgconfig(xkbregistry)
-BuildRequires:  python3dist(packaging)
-BuildRequires:  pkgconfig(libgps)
+BuildRequires:  pkgconfig(mm-glib)
 
-Conflicts:      waybar
-Provides:       waybar
-
-Enhances:       hyprland
-Recommends:     (font(fontawesome6free) or font(fontawesome5free))
+Enhances:       sway
+Recommends:     font(fontawesome6free)
+Recommends:     font(fontawesome6brands)
 
 %description
 %{summary}.
 
 %prep
-%autosetup -p1 -n Waybar-%{commit0}
+%autosetup -p1 -n Waybar-%{waybar_commit}
 
 %build
 %meson \
-%if %{fedora} < 40
-    -Dtests=disabled \
-%endif
-    -Dsndio=disabled \
-    -Dcava=disabled \
-    %{!?with_wireplumber:-Dwireplumber=disabled}
+    -Dcava=disabled  \
+    -Dsndio=disabled
 %meson_build
 
 %install
 %meson_install
-# remove man pages for disabled modules
-for module in cava sndio %{!?with_wireplumber:wireplumber} wlr-workspaces; do
-    rm -f %{buildroot}%{_mandir}/man5/%{name}-${module}.5
-done
 
 %check
 %meson_test
 
 %post
-%systemd_user_post waybar.service
+%systemd_user_post %{name}.service
 
 %preun
-%systemd_user_preun waybar.service
+%systemd_user_preun %{name}.service
 
 
 %files
 %license LICENSE
 %doc README.md
-%dir %{_sysconfdir}/xdg/waybar
-%config(noreplace) %{_sysconfdir}/xdg/waybar/config.jsonc
-%config(noreplace) %{_sysconfdir}/xdg/waybar/style.css
-%{_bindir}/waybar
-%{_mandir}/man5/waybar*
-%{_userunitdir}/waybar.service
+%dir %{_sysconfdir}/xdg/%{name}
+%config(noreplace) %{_sysconfdir}/xdg/%{name}/config.jsonc
+%config(noreplace) %{_sysconfdir}/xdg/%{name}/style.css
+%{_bindir}/%{name}
+%{_mandir}/man5/%{name}*
+%{_userunitdir}/%{name}.service
 
 %changelog
+* Sat Feb 07 2026 Tomasz Hołubowicz <mail@alternateved.com> - 0.15.0-1
+- Update to 0.15.0
+
+* Sat Jan 17 2026 Fedora Release Engineering <releng@fedoraproject.org> - 0.14.0-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_44_Mass_Rebuild
+
+* Wed Jan 14 2026 Jitka Plesnikova <jplesnik@redhat.com> - 0.14.0-2
+- Rebuild for new gpsd
+
+* Sun Aug 10 2025 Aleksei Bavshin <alebastr@fedoraproject.org> - 0.14.0-1
+- Update to 0.14.0 (#2387223)
+
+* Fri Jul 25 2025 Fedora Release Engineering <releng@fedoraproject.org> - 0.13.0-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_43_Mass_Rebuild
+
+* Sat Jul 12 2025 Aleksei Bavshin <alebastr@fedoraproject.org> - 0.13.0-2
+- Add patches for known 0.13.0 regressions (#2379698)
+
+* Mon Jun 23 2025 Aleksei Bavshin <alebastr@fedoraproject.org> - 0.13.0-1
+- Update to 0.13.0 (rhbz#2374294)
+
+* Thu Feb 27 2025 Björn Esser <besser82@fedoraproject.org> - 0.12.0-2
+- Rebuild (jsoncpp)
+
+* Sun Feb 23 2025 Aleksei Bavshin <alebastr@fedoraproject.org> - 0.12.0-1
+- Update to 0.12.0 (#2346964)
+
+* Sun Jan 19 2025 Fedora Release Engineering <releng@fedoraproject.org> - 0.11.0-3
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_42_Mass_Rebuild
+
+* Tue Nov 26 2024 František Zatloukal <fzatlouk@redhat.com> - 0.11.0-2
+- Rebuilt for spdlog 1.15.0
+
+* Sun Sep 15 2024 Aleksei Bavshin <alebastr@fedoraproject.org> - 0.11.0-1
+- Update to 0.11.0 (#2312394)
+
+* Sat Jul 20 2024 Aleksei Bavshin <alebastr@fedoraproject.org> - 0.10.4-1
+- Update to 0.10.4 (#2298541)
+
+* Sat Jul 20 2024 Fedora Release Engineering <releng@fedoraproject.org> - 0.10.3-4
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_41_Mass_Rebuild
+
+* Mon Jul 15 2024 Kefu Chai <tchaikov@gmail.com> - 0.10.3-3
+- Rebuild for fmt 11
+
+* Tue May 21 2024 František Zatloukal <fzatlouk@redhat.com> - 0.10.3-2
+- Rebuilt for spdlog 1.14.1
+
+* Sun May 19 2024 Aleksei Bavshin <alebastr@fedoraproject.org> - 0.10.3-1
+- Update to 0.10.3 (#2250157)
+
+* Tue Apr 23 2024 Aleksei Bavshin <alebastr@fedoraproject.org> - 0.10.2-1
+- Update to 0.10.2 (#2276575)
+
+* Wed Mar 13 2024 Aleksei Bavshin <alebastr@fedoraproject.org> - 0.10.0-1
+- Update to 0.10.0
+
+* Sat Feb 24 2024 Aleksei Bavshin <alebastr@fedoraproject.org> - 0.9.24-3
+- Patch default configuration to address several known issues
+- Fixes rhbz#2254813
+
+* Mon Jan 29 2024 Aleksei Bavshin <alebastr@fedoraproject.org> - 0.9.24-2
+- Disable wireplumber support in rawhide (rhbz#2260558)
+
+* Sat Jan 27 2024 Fedora Release Engineering <releng@fedoraproject.org> - 0.9.24-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_40_Mass_Rebuild
+
+* Sun Nov 05 2023 Aleksei Bavshin <alebastr@fedoraproject.org> - 0.9.24-1
+- Update to 0.9.24
+
+* Wed Aug 16 2023 Aleksei Bavshin <alebastr@fedoraproject.org> - 0.9.22-1
+- Update to 0.9.22
+
+* Mon Aug 14 2023 Aleksei Bavshin <alebastr@fedoraproject.org> - 0.9.21-1
+- Update to 0.9.21
+
+* Sat Jul 22 2023 Fedora Release Engineering <releng@fedoraproject.org> - 0.9.20-2
+- Rebuilt for https://fedoraproject.org/wiki/Fedora_39_Mass_Rebuild
+
+* Tue Jul 18 2023 Aleksei Bavshin <alebastr@fedoraproject.org> - 0.9.20-1
+- Update to 0.9.20 (#2223828)
+
+* Tue Jul 11 2023 Aleksei Bavshin <alebastr@fedoraproject.org> - 0.9.19-3
+- Add patches for some known issues
+
+* Sat Jul 08 2023 Vitaly Zaitsev <vitaly@easycoding.org> - 0.9.19-2
+- Rebuilt due to spdlog 1.12 update.
+
+* Tue Jul 04 2023 Aleksei Bavshin <alebastr@fedoraproject.org> - 0.9.19-1
+- Update to 0.9.19
+
+* Wed Jun 28 2023 Vitaly Zaitsev <vitaly@easycoding.org> - 0.9.18-2
+- Rebuilt due to fmt 10 update.
+
+* Mon May 29 2023 Aleksei Bavshin <alebastr@fedoraproject.org> - 0.9.18-1
+- Update to 0.9.18
+- Recommend Font Awesome 6 for F39
+
 * Sat Jan 21 2023 Fedora Release Engineering <releng@fedoraproject.org> - 0.9.17-2
 - Rebuilt for https://fedoraproject.org/wiki/Fedora_38_Mass_Rebuild
 
