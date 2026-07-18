@@ -46,6 +46,7 @@ hyprdeps = {
     "glslang",
     "pkgconfig(aquamarine)",
     "pkgconfig(cairo)",
+    "pkgconfig(eis)",
     "pkgconfig(egl)",
     "pkgconfig(gbm)",
     "pkgconfig(gio-2.0)",
