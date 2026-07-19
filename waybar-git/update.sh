@@ -8,7 +8,7 @@ SPEC=waybar-git.spec
 oldTag="$(rpmspec -q --qf "%{version}\n" $SPEC | head -1 | sed 's/\^.*//')"
 newTag="$(curl "https://api.github.com/repos/Alexays/Waybar/tags" | jq -r '.[0].name' | sed 's/^v//')"
 
-oldCommit="$(sed -n 's/.*\bcommit0\b \(.*\)/\1/p' $SPEC)"
+oldCommit="$(sed -n 's/.*waybar_commit \(.*\)/\1/p' $SPEC)"
 newCommit="$(curl -s -H "Accept: application/vnd.github.VERSION.sha" "https://api.github.com/repos/Alexays/Waybar/commits/master")"
 
 
