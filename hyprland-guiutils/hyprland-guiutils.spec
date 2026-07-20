@@ -1,6 +1,6 @@
 Name:           hyprland-guiutils
-Version:        0.2.1
-Release:        %autorelease -b4
+Version:        0.2.2
+Release:        %autorelease -b1
 Summary:        Hyprland utility apps
 License:        BSD-3-Clause
 URL:            https://github.com/hyprwm/hyprland-guiutils
