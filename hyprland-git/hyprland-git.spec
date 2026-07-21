@@ -103,6 +103,12 @@ hyprdeps = {
 BuildRequires:  pkgconfig(xkbcommon)
 %endif
 
+%if 0%{?fedora} == 43
+sed -i '/return (.* || std::ranges::starts_with(str_view, prefixes));/c\
+    auto check = [&](auto prefix) { return std::string(str_view.begin(), str_view.end()).starts_with(prefix); };\
+    return (... || check(prefixes));' src/helpers/MiscFunctions.cpp
+%endif
+
 %define printbdeps(r) %{lua:
 for _, dep in ipairs(hyprdeps) do
     print((rpm.expand("%{-r}") ~= "" and "Requires: " or "BuildRequires: ")..dep.."\\n")
