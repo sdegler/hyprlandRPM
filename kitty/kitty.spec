@@ -1,5 +1,5 @@
 %global forgeurl https://github.com/kovidgoyal/kitty
-%global commit0 3b78fd646ec3cb4fa856b28b53702bb1edba4f49
+%global commit0 5b4ea1bbba26a9a4ba74dc9a5bb587c9f983fec5
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 #global bumpver 1
 
@@ -15,7 +15,7 @@
 %global goipath kitty
 
 Name:           kitty
-Version:        0.47.4%{?bumpver:^%{bumpver}.git%{shortcommit0}}
+Version:        0.48.0%{?bumpver:^%{bumpver}.git%{shortcommit0}}
 Release:        %autorelease
 Summary:        Cross-platform, fast, feature full, GPU based terminal emulator
 
