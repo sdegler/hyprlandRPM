@@ -97,6 +97,7 @@ hyprdeps = {
     "pkgconfig(glslang)",
     "pkgconfig(lcms2)",
     "pkgconfig(lua)",
+    "sdbus-cpp-devel",
     }
 }
 %if 0%{?fedora} > 42
