@@ -13,7 +13,7 @@
 %global libxkbcommon_version 1.11.0
 
 Name:           hyprland-git
-Version:        0.56.0%{?bumpver:^%{bumpver}.git%{hyprland_shortcommit}}
+Version:        0.56.1%{?bumpver:^%{bumpver}.git%{hyprland_shortcommit}}
 Release:        %autorelease -b1
 Summary:        Dynamic tiling Wayland compositor that doesn't sacrifice on its looks
 
@@ -97,7 +97,7 @@ hyprdeps = {
     "pkgconfig(glslang)",
     "pkgconfig(lcms2)",
     "pkgconfig(lua)",
-    "sdbus-cpp-devel",
+    "pkgconfig(sdbus-c++)",
     }
 }
 %if 0%{?fedora} > 42
