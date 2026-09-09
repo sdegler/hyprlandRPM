@@ -21,6 +21,14 @@ BuildRequires:  pkgconfig(hyprutils)
 BuildRequires:  pkgconfig(polkit-agent-1)
 BuildRequires:  pkgconfig(polkit-qt6-1)
 
+BuildRequires:  pkgconfig(hyprtoolkit)
+BuildRequires:  pkgconfig(hyprgraphics)
+BuildRequires:  pkgconfig(hyprlang)
+BuildRequires:  pkgconfig(pixman-1)
+BuildRequires:  pkgconfig(libdrm)
+BuildRequires:  pkgconfig(sdbus-c++) >= 2
+
+
 Requires:       hyprland-qt-support%{?_isa}
 
 Provides:       PolicyKit-authentication-agent
