@@ -30,7 +30,7 @@ BuildRequires:  pkgconfig(pixman-1)
 BuildRequires:  pkgconfig(wayland-client)
 BuildRequires:  pkgconfig(wayland-protocols)
 BuildRequires:  pkgconfig(xkbcommon)
-BuildRequires:  abseil-cpp
+BuildRequires:  abseil-cpp-devel
 %description
 %{summary}.
 
