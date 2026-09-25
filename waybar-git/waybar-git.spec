@@ -1,4 +1,4 @@
-%global waybar_commit 7f732f055316d3b0ab89f57e4347d24c1cc96167
+%global waybar_commit 16843896794a9c595139318420f81f40e84f8c78
 %global waybar_shortcommit %(c=%{waybar_commit}; echo ${c:0:7})
 %global bumpver 2
 
@@ -24,7 +24,7 @@ Source:        %{url}/archive/%{waybar_commit}/%{name}-%{waybar_shortcommit}.tar
 #  - Fix missing or incorrectly rendered icons
 #  - Remove several modules from the config
 #  - Switch font to monospace
-Patch:          waybar-fedora-config-changes.patch
+#Patch:          waybar-fedora-config-changes.patch
 
 # Fix for hot update loop that can spike CPU and
 # destabilize rendering in drawer/group setups
