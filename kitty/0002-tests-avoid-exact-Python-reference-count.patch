@@ -1,0 +1,28 @@
+From: Fedora kitty package maintainers
+Subject: [PATCH 2/2] tests: avoid relying on an exact Python reference count
+
+Python documents that sys.getrefcount() values above one do not necessarily
+reflect the number of references actually held.  Keep the functional lifetime
+check, which detects the borrowed-reference bug without relying on an internal
+reference-count value.
+
+---
+ kitty_tests/fonts.py | 3 ---
+ 1 file changed, 3 deletions(-)
+
+diff --git a/kitty_tests/fonts.py b/kitty_tests/fonts.py
+index d518b3c..5c56e12 100644
+--- a/kitty_tests/fonts.py
++++ b/kitty_tests/fonts.py
+@@ -556,9 +556,6 @@ class Rendering(FontBaseTest):
+                 face = get_fallback_font(text, False, False)
+             except ValueError:
+                 continue
+-            # one reference held by the FontGroup, one by face, one by the
+-            # argument to getrefcount()
+-            self.assertGreaterEqual(sys.getrefcount(face), 3, f'get_fallback_font() returned a borrowed reference for {text!r}')
+             del face
+             # the Face must still be usable via the FontGroup
+             self.assertIsInstance(get_fallback_font(text, False, False).postscript_name(), str)
+-- 
+2.51.0

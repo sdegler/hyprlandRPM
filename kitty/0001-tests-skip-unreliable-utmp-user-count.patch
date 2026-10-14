@@ -1,0 +1,22 @@
+From: Fedora kitty package maintainers
+Subject: [PATCH 1/2] tests: skip unreliable utmp user count test
+
+The test compares kitty's count of live USER_PROCESS records with the
+unfiltered output of who.  Stale or concurrently removed utmp records can
+make those values differ, so this is not a reliable build-time test.
+
+---
+ kitty_tests/utmp.py | 2 ++
+ 1 file changed, 2 insertions(+)
+
+diff --git a/kitty_tests/utmp.py b/kitty_tests/utmp.py
+index 7f62bd1..b31cc8c 100644
+--- a/kitty_tests/utmp.py
++++ b/kitty_tests/utmp.py
+@@ -9,2 +9,4 @@ class UTMPTest(BaseTest):
+     def test_num_users(self):
++        self.skipTest('utmp records are unreliable in package build environments')
++
+         # who is the control
+-- 
+2.51.0

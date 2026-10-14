@@ -1,5 +1,5 @@
 %global forgeurl https://github.com/kovidgoyal/kitty
-%global commit0 5b4ea1bbba26a9a4ba74dc9a5bb587c9f983fec5
+%global commit0 b2cb871254fbdac19a085188813c8dfb258b95cd
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
 #global bumpver 1
 
@@ -15,7 +15,7 @@
 %global goipath kitty
 
 Name:           kitty
-Version:        0.48.2%{?bumpver:^%{bumpver}.git%{shortcommit0}}
+Version:        0.49.2%{?bumpver:^%{bumpver}.git%{shortcommit0}}
 Release:        %autorelease
 Summary:        Cross-platform, fast, feature full, GPU based terminal emulator
 
@@ -72,6 +72,9 @@ Source6:        bundle_go_deps_for_rpm.sh
 Source1:        https://raw.githubusercontent.com/kovidgoyal/kitty/46c0951751444e4f4994008f0d2dcb41e49389f4/kitty/data/%{name}.appdata.xml
 
 Source2:        https://github.com/ryanoasis/nerd-fonts/releases/latest/download/NerdFontsSymbolsOnly.tar.xz
+
+Patch0:         0001-tests-skip-unreliable-utmp-user-count.patch
+Patch1:         0002-tests-avoid-exact-Python-reference-count.patch
 
 # https://fedoraproject.org/wiki/Changes/EncourageI686LeafRemoval
 ExcludeArch:    %{ix86}
