@@ -1,4 +1,4 @@
-%global hyprland_commit 1a3606234c59842340ad9a42baeeffe44a9d6cda
+%global hyprland_commit 0aa6745f705f2c4b0a5004eb019ef76e5bbdb426
 %global hyprland_shortcommit %(c=%{hyprland_commit}; echo ${c:0:7})
 %global bumpver 7
 %global commits_count 7633
@@ -53,9 +53,9 @@ hyprdeps = {
     "pkgconfig(hwdata)",
     "pkgconfig(hyprcursor)",
     "pkgconfig(hyprgraphics)",
-    "pkgconfig(hyprland-protocols)",
+    "pkgconfig(hyprland-protocols) >= 0.8.0",
     "pkgconfig(hyprlang)",
-    "pkgconfig(hyprutils >= 0.6.0)",
+    "pkgconfig(hyprutils) >= 0.6.0",
     "pkgconfig(hyprwayland-scanner)",
     "pkgconfig(hyprwire)",
     "pkgconfig(libdisplay-info)",
