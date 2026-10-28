@@ -58,6 +58,7 @@ hyprdeps = {
     "pkgconfig(hyprutils) >= 0.6.0",
     "pkgconfig(hyprwayland-scanner)",
     "pkgconfig(hyprwire)",
+    "pkgconfig(libcanberra)",
     "pkgconfig(libdisplay-info)",
     "pkgconfig(libdrm)",
     "pkgconfig(libeis-1.0)",
