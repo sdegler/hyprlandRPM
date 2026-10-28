@@ -55,7 +55,7 @@ hyprdeps = {
     "pkgconfig(hyprgraphics)",
     "pkgconfig(hyprland-protocols)",
     "pkgconfig(hyprlang)",
-    "pkgconfig(hyprutils)",
+    "pkgconfig(hyprutils >= 0.6.0)",
     "pkgconfig(hyprwayland-scanner)",
     "pkgconfig(hyprwire)",
     "pkgconfig(libdisplay-info)",
