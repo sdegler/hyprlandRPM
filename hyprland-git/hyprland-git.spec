@@ -4,8 +4,8 @@
 %global commits_count 7633
 %global commit_date Tue Jul 21 01:52:10 2026
 
-%global protocols_commit bd153e76f751f150a09328dbdeb5e4fab9d23622
-%global protocols_shortcommit %(c=%{protocols_commit}; echo ${c:0:7})
+# %global protocols_commit bd153e76f751f150a09328dbdeb5e4fab9d23622
+# %global protocols_shortcommit %(c=%{protocols_commit}; echo ${c:0:7})
 
 %global udis86_commit 5336633af70f3917760a6d441ff02d93477b0c86
 %global udis86_shortcommit %(c=%{udis86_commit}; echo ${c:0:7})
@@ -28,7 +28,7 @@ License:        BSD-3-Clause AND BSD-2-Clause AND HPND-sell-variant AND LGPL-2.1
 URL:            https://github.com/hyprwm/Hyprland
 %if 0%{?bumpver}
 Source0:        %{url}/archive/%{hyprland_commit}/%{name}-%{hyprland_shortcommit}.tar.gz
-Source2:        https://github.com/hyprwm/hyprland-protocols/archive/%{protocols_commit}/protocols-%{protocols_shortcommit}.tar.gz
+# Source2:        https://github.com/hyprwm/hyprland-protocols/archive/%{protocols_commit}/protocols-%{protocols_shortcommit}.tar.gz
 Source3:        https://github.com/canihavesomecoffee/udis86/archive/%{udis86_commit}/udis86-%{udis86_shortcommit}.tar.gz
 %else
 Source0:        %{url}/releases/download/v%{version}/source-v%{version}.tar.gz
@@ -220,7 +220,7 @@ sed -i '/return (.* || std::ranges::starts_with(str_view, prefixes));/c\
     return (... || check(prefixes));' src/helpers/MiscFunctions.cpp
 %endif
 %if 0%{?bumpver}
-tar -xf %{SOURCE2} -C subprojects/hyprland-protocols --strip=1
+# tar -xf %{SOURCE2} -C subprojects/hyprland-protocols --strip=1
 tar -xf %{SOURCE3} -C subprojects/udis86 --strip=1
 sed -e '/GIT_COMMIT_HASH/s/unknown/%{hyprland_commit}/' \
     -e '/GIT_BRANCH/s/unknown/main/' \
@@ -274,7 +274,7 @@ install -Dpm644 %{SOURCE4} -t %{buildroot}%{_rpmconfigdir}/macros.d
 
 
 %files
-%license LICENSE LICENSE-udis86 LICENSE-hyprland-protocols
+%license LICENSE LICENSE-udis86
 %{_bindir}/[Hh]yprland
 %{_bindir}/hyprctl
 %{_bindir}/hyprpm
@@ -282,6 +282,7 @@ install -Dpm644 %{SOURCE4} -t %{buildroot}%{_rpmconfigdir}/macros.d
 %{_datadir}/hypr/
 %{_datadir}/wayland-sessions/hyprland.desktop
 %{_datadir}/xdg-desktop-portal/hyprland-portals.conf
+%{_libdir}/systemd/user/hyprland-session.target
 %{_mandir}/man1/hyprctl.1*
 %{_mandir}/man1/Hyprland.1*
 %{bash_completions_dir}/hypr*
