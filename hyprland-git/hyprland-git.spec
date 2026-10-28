@@ -231,7 +231,7 @@ sed -e '/GIT_COMMIT_HASH/s/unknown/%{hyprland_commit}/' \
     -i CMakeLists.txt
 %endif
 
-cp -p subprojects/hyprland-protocols/LICENSE LICENSE-hyprland-protocols
+#cp -p subprojects/hyprland-protocols/LICENSE LICENSE-hyprland-protocols
 cp -p subprojects/udis86/LICENSE LICENSE-udis86
 
 sed -i \
