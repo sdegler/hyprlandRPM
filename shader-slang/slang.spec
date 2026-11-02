@@ -1,15 +1,15 @@
 %global upstream_name slang
 %global github_owner  shader-slang
 %global debug_package %{nil}
-
+%global version 2026.20
 Name:           shader-slang
 Version:        2026.20
 Release:        %autorelease
 Summary:        Shading language that makes it easier to build and maintain large shader codebases
 
 License:        Apache-2.0 WITH LLVM-exception
-URL:            https://github.com/%{github_owner}/%{upstream_name}
-Source0:        %{upstream_name}-%{version}-full.tar.gz
+URL:	        https://github.com/%{github_owner}/%{upstream_name}
+Source0:        %(/bin/sh -c "(cd %{_sourcedir} && %{_sourcedir}/fetch_source.sh %{_specdir}/slang.spec)| tail -1")
 
 Patch:          fedora.patch
 
