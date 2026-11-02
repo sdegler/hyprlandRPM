@@ -93,6 +93,7 @@ BuildRequires:  libappstream-glib
 BuildRequires:  ncurses
 BuildRequires:  wayland-devel
 BuildRequires:  simde-static
+BuildRequires:  slang-devel
 
 BuildRequires:  pkgconfig(dbus-1)
 BuildRequires:  pkgconfig(fontconfig)
