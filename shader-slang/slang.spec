@@ -9,7 +9,9 @@ Summary:        Shading language that makes it easier to build and maintain larg
 
 License:        Apache-2.0 WITH LLVM-exception
 URL:	        https://github.com/%{github_owner}/%{upstream_name}
-Source0:        %(/bin/sh -c "(cd %{_sourcedir} && %{_sourcedir}/fetch_source.sh %{_specdir}/slang.spec)| tail -1")
+Source0:        slang-%{version}-full.tar.gz
+# Helper used by maintainers to create Source0; it is not run during a build.
+Source1:        fetch_source.sh
 
 Patch:          fedora.patch
 
