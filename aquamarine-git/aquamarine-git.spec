@@ -47,7 +47,7 @@ Development files for %{name}.
 %cmake_build
 
 %install
-%cmake_install 
+%cmake_install
 
 %files
 %license LICENSE
