@@ -104,6 +104,7 @@ Recommends:     font(fontawesome6brands)
 %config(noreplace) %{_sysconfdir}/xdg/%{name}/style.css
 %{_bindir}/%{name}
 %{_mandir}/man5/%{name}*
+%{_libdir}/waybar/%{name}-gps.so
 %{_userunitdir}/%{name}.service
 
 %changelog

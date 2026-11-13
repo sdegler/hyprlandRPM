@@ -1,0 +1,256 @@
+{
+  "packages": {
+    "aquamarine": {
+      "spec": "aquamarine/aquamarine.spec",
+      "strategy": "autorelease"
+    },
+    "aquamarine-git": {
+      "spec": "aquamarine-git/aquamarine-git.spec",
+      "strategy": "autorelease"
+    },
+    "appmenu-glib-translator": {
+      "spec": "astal/appmenu-glib-translator/appmenu-glib-translator.spec",
+      "strategy": "autorelease"
+    },
+    "astal": {
+      "spec": "astal/astal/astal.spec",
+      "strategy": "autorelease"
+    },
+    "astal-gjs": {
+      "spec": "astal/astal-gjs/astal-gjs.spec",
+      "strategy": "autorelease"
+    },
+    "astal-gtk4": {
+      "spec": "astal/astal-gtk4/astal-gtk4.spec",
+      "strategy": "autorelease"
+    },
+    "astal-io": {
+      "spec": "astal/astal-io/astal-io.spec",
+      "strategy": "autorelease"
+    },
+    "astal-libs": {
+      "spec": "astal/astal-libs/astal-libs.spec",
+      "strategy": "autorelease"
+    },
+    "astal-lua": {
+      "spec": "astal/astal-lua/astal-lua.spec",
+      "strategy": "autorelease"
+    },
+    "aylurs-gtk-shell2": {
+      "spec": "astal/aylurs-gtk-shell2/aylurs-gtk-shell2.spec",
+      "strategy": "autorelease"
+    },
+    "hyprpanel": {
+      "spec": "astal/hyprpanel/hyprpanel.spec",
+      "strategy": "autorelease"
+    },
+    "aylurs-gtk-shell": {
+      "spec": "aylurs-gtk-shell/aylurs-gtk-shell.spec",
+      "strategy": "autorelease"
+    },
+    "cliphist": {
+      "spec": "cliphist/cliphist.spec",
+      "strategy": "autorelease"
+    },
+    "eww-git": {
+      "spec": "eww-git/eww-git.spec",
+      "strategy": "autorelease"
+    },
+    "glaze": {
+      "spec": "glaze/glaze.spec",
+      "strategy": "autorelease"
+    },
+    "hellwal": {
+      "spec": "hellwal/hellwal.spec",
+      "strategy": "autorelease"
+    },
+    "hyprcursor": {
+      "spec": "hyprcursor/hyprcursor.spec",
+      "strategy": "autorelease"
+    },
+    "hyprdim": {
+      "spec": "hyprdim/hyprdim.spec",
+      "strategy": "autorelease"
+    },
+    "hyprgraphics": {
+      "spec": "hyprgraphics/hyprgraphics.spec",
+      "strategy": "autorelease"
+    },
+    "hypridle": {
+      "spec": "hypridle/hypridle.spec",
+      "strategy": "autorelease"
+    },
+    "hyprland": {
+      "spec": "hyprland/hyprland.spec",
+      "strategy": "autorelease"
+    },
+    "hyprland-autoname-workspaces": {
+      "spec": "hyprland-autoname-workspaces/hyprland-autoname-workspaces.spec",
+      "strategy": "autorelease"
+    },
+    "hyprland-contrib": {
+      "spec": "hyprland-contrib/hyprland-contrib.spec",
+      "strategy": "autorelease"
+    },
+    "hyprland-git": {
+      "spec": "hyprland-git/hyprland-git.spec",
+      "strategy": "autorelease"
+    },
+    "hyprland-guiutils": {
+      "spec": "hyprland-guiutils/hyprland-guiutils.spec",
+      "strategy": "autorelease"
+    },
+    "hyprland-protocols": {
+      "spec": "hyprland-protocols/hyprland-protocols.spec",
+      "strategy": "autorelease"
+    },
+    "hyprland-qt-support": {
+      "spec": "hyprland-qt-support/hyprland-qt-support.spec",
+      "strategy": "autorelease"
+    },
+    "hyprland-qtutils": {
+      "spec": "hyprland-qtutils/hyprland-qtutils.spec",
+      "strategy": "autorelease"
+    },
+    "hyprlang": {
+      "spec": "hyprlang/hyprlang.spec",
+      "strategy": "autorelease"
+    },
+    "hyprlauncher": {
+      "spec": "hyprlauncher/hyprlauncher.spec",
+      "strategy": "autorelease"
+    },
+    "hyprlock": {
+      "spec": "hyprlock/hyprlock.spec",
+      "strategy": "autorelease"
+    },
+    "hyprnome": {
+      "spec": "hyprnome/hyprnome.spec",
+      "strategy": "autorelease"
+    },
+    "hyprpaper": {
+      "spec": "hyprpaper/hyprpaper.spec",
+      "strategy": "autorelease"
+    },
+    "hyprpicker": {
+      "spec": "hyprpicker/hyprpicker.spec",
+      "strategy": "autorelease"
+    },
+    "hyprpolkitagent": {
+      "spec": "hyprpolkitagent/hyprpolkitagent.spec",
+      "strategy": "autorelease"
+    },
+    "hyprpwcenter": {
+      "spec": "hyprpwcenter/hyprpwcenter.spec",
+      "strategy": "autorelease"
+    },
+    "hyprqt6engine": {
+      "spec": "hyprqt6engine/hyprqt6engine.spec",
+      "strategy": "autorelease"
+    },
+    "hyprshot": {
+      "spec": "hyprshot/hyprshot.spec",
+      "strategy": "autorelease"
+    },
+    "hyprshutdown": {
+      "spec": "hyprshutdown/hyprshutdown.spec",
+      "strategy": "autorelease"
+    },
+    "hyprsunset": {
+      "spec": "hyprsunset/hyprsunset.spec",
+      "strategy": "autorelease"
+    },
+    "hyprsysteminfo": {
+      "spec": "hyprsysteminfo/hyprsysteminfo.spec",
+      "strategy": "autorelease"
+    },
+    "hyprtoolkit": {
+      "spec": "hyprtoolkit/hyprtoolkit.spec",
+      "strategy": "autorelease"
+    },
+    "hyprutils": {
+      "spec": "hyprutils/hyprutils.spec",
+      "strategy": "autorelease"
+    },
+    "hyprwayland-scanner": {
+      "spec": "hyprwayland-scanner/hyprwayland-scanner.spec",
+      "strategy": "autorelease"
+    },
+    "hyprwire": {
+      "spec": "hyprwire/hyprwire.spec",
+      "strategy": "autorelease"
+    },
+    "kitty": {
+      "spec": "kitty/kitty.spec",
+      "strategy": "autorelease"
+    },
+    "matugen": {
+      "spec": "matugen/matugen.spec",
+      "strategy": "autorelease"
+    },
+    "mpvpaper": {
+      "spec": "mpvpaper/mpvpaper.spec",
+      "strategy": "autorelease"
+    },
+    "nwg-clipman": {
+      "spec": "nwg-clipman/nwg-clipman.spec",
+      "strategy": "autorelease"
+    },
+    "nwg-look": {
+      "spec": "nwg-look/nwg-look.spec",
+      "strategy": "autorelease"
+    },
+    "pyprland": {
+      "spec": "pyprland/pyprland.spec",
+      "strategy": "autorelease"
+    },
+    "python-imageio-ffmpeg": {
+      "spec": "python-imageio-ffmpeg/python-imageio-ffmpeg.spec",
+      "strategy": "autorelease"
+    },
+    "python-screeninfo": {
+      "spec": "python-screeninfo/python-screeninfo.spec",
+      "strategy": "autorelease"
+    },
+    "qt6ct": {
+      "spec": "qt6ct/qt6ct.spec",
+      "strategy": "autorelease"
+    },
+    "satty": {
+      "spec": "satty/satty.spec",
+      "strategy": "autorelease"
+    },
+    "shader-slang": {
+      "spec": "shader-slang/slang.spec",
+      "strategy": "autorelease"
+    },
+    "swaylock-effects": {
+      "spec": "swaylock-effects/swaylock-effects.spec",
+      "strategy": "autorelease"
+    },
+    "swww": {
+      "spec": "swww/swww.spec",
+      "strategy": "autorelease"
+    },
+    "uwsm": {
+      "spec": "uwsm/uwsm.spec",
+      "strategy": "autorelease"
+    },
+    "waybar": {
+      "spec": "waybar-git/waybar-git.spec",
+      "strategy": "release"
+    },
+    "waypaper": {
+      "spec": "waypaper/waypaper.spec",
+      "strategy": "autorelease"
+    },
+    "xcur2png": {
+      "spec": "xcur2png/xcur2png.spec",
+      "strategy": "autorelease"
+    },
+    "xdg-desktop-portal-hyprland": {
+      "spec": "xdg-desktop-portal-hyprland/xdg-desktop-portal-hyprland.spec",
+      "strategy": "autorelease"
+    }
+  }
+}
