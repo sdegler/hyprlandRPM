@@ -2,7 +2,7 @@
 %global waybar_shortcommit %(c=%{waybar_commit}; echo ${c:0:7})
 %global bumpver 1
 
-Name:           waybar
+Name:           waybar-git
 Version:        0.15.0%{?bumpver:.%{bumpver}.git%{waybar_shortcommit}}
 Release:        1%{?dist}
 Summary:        Highly customizable Wayland bar for Sway and Wlroots based compositors
