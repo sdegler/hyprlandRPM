@@ -1,19 +1,14 @@
-%global commit0 7644cecdb947060682891a0db2a0cdc5c0b9e704
+%global commit0 11cbc6c577b84ffb1edf4df3fc5b6128c3ae6947
 %global shortcommit0 %(c=%{commit0}; echo ${c:0:7})
-%global bumpver 4 
+%global bumpver 5
 
 %global __provides_exclude_from ^(%{_libdir}/hyprland/.*\\.so)$
 
 %global plugins %{shrink:
-                borders-plus-plus
+    borders-plus-plus
                 csgo-vulkan-fix
                 hyprbars
-                hyprexpo
                 hyprfocus
-                hyprscrolling
-                hyprtrails
-                hyprwinwrap
-                xtra-dispatchers
 }
 
 %if !%{defined build_for}
@@ -34,14 +29,13 @@ end
 %pluginsmeta
 
 Name:           %{pluginsmetaname}
-Version:        0.53.2^%{bumpver}.git%{shortcommit0}
+Version:        0.57.0
 Release:        %autorelease
 Summary:        Official plugins for Hyprland
 
 License:        BSD-3-Clause
 URL:            https://github.com/hyprwm/hyprland-plugins
-Source:         %{url}/archive/%{commit0}/%{name}-%{commit0}.tar.gz
-
+Source:         %{url}/archive/refs/tags/v%{version}.tar.gz
 BuildRequires:  gcc-c++
 BuildRequires:  meson
 BuildRequires:  %{hyprlandpkg}-devel
@@ -69,8 +63,9 @@ Requires:      %{hyprlandpkg} = %_hyprland_version\
 
 
 %prep
-%autosetup -n hyprland-plugins-%{commit0} -p1
+%autosetup -n hyprland-plugins-%{version} -p1
 
+%global _vpath_builddir ../redhat-linux-build-$plugin
 
 %build
 for plugin in %{plugins}
