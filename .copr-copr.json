@@ -1,4 +1,9 @@
 {
+  "_meta": {
+    "hook": "example-git-specfiles",
+    "reference_implementation": true,
+    "notice": "Example configuration; review and adapt it for this repository."
+  },
   "packages": {
     "aquamarine": {
       "spec": "aquamarine/aquamarine.spec",
@@ -237,6 +242,10 @@
       "strategy": "autorelease"
     },
     "waybar": {
+      "spec": "waybar/waybar.spec",
+      "strategy": "autorelease"
+    },
+    "waybar-git": {
       "spec": "waybar-git/waybar-git.spec",
       "strategy": "release"
     },
