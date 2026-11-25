@@ -113,10 +113,6 @@
       "spec": "hyprland-qt-support/hyprland-qt-support.spec",
       "strategy": "autorelease"
     },
-    "hyprland-qtutils": {
-      "spec": "hyprland-qtutils/hyprland-qtutils.spec",
-      "strategy": "autorelease"
-    },
     "hyprlang": {
       "spec": "hyprlang/hyprlang.spec",
       "strategy": "autorelease"
